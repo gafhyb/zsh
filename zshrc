@@ -114,4 +114,6 @@ export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 
 # Aliases
-source $HOME/.aliases
+if [[ -e $HOME/.aliases ]]; then
+    source $HOME/.aliases
+fi
