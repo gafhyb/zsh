@@ -5,13 +5,14 @@
 
 ## Clone
     cd ~
-    git clone git@github.com:gafhyb/zsh.git
+    git clone https://github.com/gafhyb/zsh.git .zsh
 
 ## Submodules
-    cd zsh
+    cd .zsh
     git submodule init
     git submodule update
 
 ## Symbolic links
+    cd ~
     ln -s .zsh/zshrc .zshrc
     ln -s .zsh/zshenv .zshenv
