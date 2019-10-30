@@ -124,3 +124,10 @@ setopt HIST_SAVE_NO_DUPS
 if [[ -e $HOME/.aliases ]]; then
     source $HOME/.aliases
 fi
+
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Sentry
+if [[ -e $HOME/.sentry-cli ]]; then
+    source $HOME/.sentry-cli
+fi
