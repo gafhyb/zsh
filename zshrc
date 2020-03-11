@@ -49,10 +49,11 @@ ZSH_THEME="robbyrussell"
 
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
-plugins=(history history-substring-search mvn rsync git cp symfony2 sudo)
+plugins=(python history history-substring-search mvn rsync git cp symfony2 sudo)
 elif [[ "$unamestr" == 'Darwin' ]]; then
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/apache-maven/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin"
-plugins=(history z docker brew history-substring-search mvn rsync git git-flow cp symfony2 sudo osx chucknorris zsh-iterm-touchbar)
+plugins=(python history z docker brew history-substring-search mvn rsync git git-flow cp symfony2 sudo osx chucknorris zsh-iterm-touchbar battery)
+export HOMEBREW_NO_ANALYTICS=1
 fi
 source $ZSH/oh-my-zsh.sh
 
