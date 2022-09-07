@@ -5,7 +5,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,8 +52,8 @@ unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
 plugins=(python history history-substring-search mvn rsync git cp symfony2 sudo)
 elif [[ "$unamestr" == 'Darwin' ]]; then
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/apache-maven/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:$HOME/.symfony/bin"
-plugins=(python history z docker brew history-substring-search mvn rsync git git-flow cp symfony2 sudo osx chucknorris zsh-iterm-touchbar battery)
+export PATH="/usr/local/sbin:/usr/local/bin:/opt/homebrew/bin:/usr/local/apache-maven/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:$HOME/.symfony/bin:$HOME/Library/Python/3.8/bin:$HOME/go/bin"
+plugins=(python history z docker brew history-substring-search mvn rsync git git-flow cp sudo macos zsh-iterm-touchbar battery kubectl virtualenv virtualenvwrapper poetry)
 export HOMEBREW_NO_ANALYTICS=1
 fi
 source $ZSH/oh-my-zsh.sh
@@ -86,15 +87,44 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# zgitinit and prompt_wunjo_setup must be somewhere in your $fpath, see README for more.
-setopt promptsubst
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stamps section
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  package       # Package version
+  node          # Node.js section
+  php           # PHP section
+  docker        # Docker section
+  venv          # virtualenv section
+  conda         # conda virtualenv section
+  pyenv         # Pyenv section
+  maven
+  hugo
+  kubectl       # Kubectl context section
+  exec_time     # Execution time
+  line_sep      # Line break
+  battery       # Battery level and status
+  vi_mode       # Vi-mode indicator
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
 
-# Load the prompt theme system
-autoload -U promptinit
-promptinit
-
-# Use the wunjo prompt theme
-prompt wunjo
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_FORMAT="%D %T"
+SPACESHIP_USER_PREFIX="🧑‍💻 "
+SPACESHIP_HOST_SHOW=true
+SPACESHIP_HOST_PREFIX="💻 "
+SPACESHIP_GIT_SYMBOL=" 🔖 "
+SPACESHIP_GIT_BRANCH_PREFIX="🌱 "
+SPACESHIP_VENV_PREFIX="🏝️ ("
+SPACESHIP_VENV_SUFFIX=") "
+SPACESHIP_DIR_PREFIX="📁 "
+SPACESHIP_DIR_TRUNC_REPO=false
+SPACESHIP_BATTERY_PREFIX="🔋 "
+SPACESHIP_BATTERY_THRESHOLD=40
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if [[ $EUID == 0 ]]; then
@@ -132,3 +162,11 @@ fi
 if [[ -e $HOME/.sentry-cli ]]; then
     source $HOME/.sentry-cli
 fi
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.poetry/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
