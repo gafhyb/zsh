@@ -87,45 +87,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-SPACESHIP_PROMPT_ORDER=(
-  time          # Time stamps section
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  package       # Package version
-  node          # Node.js section
-  php           # PHP section
-  docker        # Docker section
-  venv          # virtualenv section
-  conda         # conda virtualenv section
-  pyenv         # Pyenv section
-  maven
-  hugo
-  kubectl       # Kubectl context section
-  exec_time     # Execution time
-  line_sep      # Line break
-  battery       # Battery level and status
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-)
-
-SPACESHIP_TIME_SHOW=true
-SPACESHIP_TIME_FORMAT="%D %T"
-SPACESHIP_USER_PREFIX="🧑‍💻 "
-SPACESHIP_HOST_SHOW=true
-SPACESHIP_HOST_PREFIX="💻 "
-SPACESHIP_GIT_SYMBOL=" 🔖 "
-SPACESHIP_GIT_BRANCH_PREFIX="🌱 "
-SPACESHIP_VENV_PREFIX="🏝️ ("
-SPACESHIP_VENV_SUFFIX=") "
-SPACESHIP_DIR_PREFIX="📁 "
-SPACESHIP_DIR_TRUNC_REPO=false
-SPACESHIP_BATTERY_PREFIX="🔋 "
-SPACESHIP_BATTERY_THRESHOLD=40
-
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if [[ $EUID == 0 ]]; then
 	ZSH_HIGHLIGHT_STYLES[alias]='fg=red,bold'
@@ -170,3 +131,13 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.poetry/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Spaceship
+if [[ -e $HOME/.zsh/spaceshiprc ]]; then
+    source $HOME/.zsh/spaceshiprc
+fi
+
+# renew SSH key
+if [[ -e $HOME/.zsh/renew_key ]]; then
+    source $HOME/.zsh/renew_key
+fi
