@@ -4,3 +4,5 @@ if [[ -e /usr/local/bin/virtualenvwrapper.sh ]]; then
     export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/bin/python3
     source /usr/local/bin/virtualenvwrapper.sh
 fi
+
+export FCEDIT=nvim
