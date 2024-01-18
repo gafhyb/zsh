@@ -52,7 +52,7 @@ unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
 plugins=(python history history-substring-search mvn rsync git cp symfony2 sudo)
 elif [[ "$unamestr" == 'Darwin' ]]; then
-export PATH="/usr/local/sbin:/usr/local/bin:/opt/homebrew/bin:/usr/local/apache-maven/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:$HOME/.symfony/bin:$HOME/Library/Python/3.8/bin:$HOME/go/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/opt/homebrew/bin:/usr/local/apache-maven/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:$HOME/.symfony/bin:$HOME/Library/Python/3.8/bin:$HOME/go/bin:/usr/local/texlive/2023/bin/universal-darwin"
 plugins=(python history z docker brew history-substring-search mvn rsync git git-flow cp sudo macos zsh-iterm-touchbar battery kubectl virtualenv virtualenvwrapper poetry)
 export HOMEBREW_NO_ANALYTICS=1
 fi
