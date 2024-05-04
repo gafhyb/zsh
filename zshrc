@@ -138,6 +138,12 @@ if [[ -e $HOME/.zsh/spaceshiprc ]]; then
 fi
 
 # renew SSH key
-if [[ -e $HOME/.zsh/renew_key ]]; then
-    source $HOME/.zsh/renew_key
+if [[ -e $HOME/.zsh/renew_key.sh ]]; then
+    source $HOME/.zsh/renew_key.sh
 fi
+
+# ignore commands start with space
+setopt HIST_IGNORE_SPACE
+
+# Created by `pipx` on 2024-04-12 09:21:15
+export PATH="$PATH:/Users/virgile/.local/bin"
